@@ -136,7 +136,7 @@ class ListaCatedra {
 
 //        public boolean cumpleFiltro() {
 //
-//            if (actual.getInfo().esVigente()) {
+//            if (actual.getInfo()) {
 //                return true;
 //            }
 //

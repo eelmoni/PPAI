@@ -61,8 +61,26 @@ ListaCatedra catedras;
             }
         }
 
-        return aux1;
+        return aux1;}
+    public String[] buscarCatedrass() { //para sacar todas las catedras
 
+        String[] aux1 = new String[catedras.getCantidad()];
+
+        if (catedras.getFrente() != null) {
+            NodoCatedra info = catedras.getFrente();
+            int i = 0;
+            while (info != null) {
+                {
+
+                    aux1[i] = info.getInfo().getNombre();
+                    i++;
+
+                }
+                info = info.getNext();
+            }
+        }
+
+        return aux1;
     }
     public String getFacultadUsuarioLogueado(Sesion s){
 
@@ -78,18 +96,14 @@ ListaCatedra catedras;
         int i=0;
         
 
-        while (!it.haTerminado()) {
-            
-                x[i]=it.actual().getInfo().getNombre();
-                
-                
-               
+        while (!it.haTerminado()) {            
+            x[i]=it.actual().getInfo().getNombre();  
             i++;
             it.siguiente();
         }
         return x;
     }
-    
+
 
     public void setSesionActiva(Sesion sesionActiva) {
         this.sesionActiva = sesionActiva;
