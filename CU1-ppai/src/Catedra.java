@@ -9,20 +9,22 @@
  * @author Usuario
  */
 public class Catedra {
+ private Carrera carrera;
  private String nombre;
  private String codigo;
  private int nivel;
  private String sigla;
 
 
-    public Catedra(String nombre, String codigo, int nivel, String sigla) {
+    public Catedra(String nombre, String codigo, int nivel, String sigla, Carrera carrera) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.nivel = nivel;
         this.sigla = sigla;
+        this.carrera=carrera;
     }
 
-    public String mostrarNombre() {
+    public String getNombre() {
         return nombre;
     }
 

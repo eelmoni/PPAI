@@ -13,10 +13,11 @@ public class Usuario {
     private String user;
     private String pass;
 
-    public Usuario(String user, String pass) {
+    public Usuario(String user, String pass, Facultad facultad) {
       //  this.facultad = facultad;
         this.user = user;
         this.pass = pass;
+        this.facultad=facultad;
     }
 
     public Facultad getFacultad() {

@@ -27,8 +27,23 @@ public class Concurso {
     private Calendar fechaLimiteExcusacion;
     private Calendar fechaDesdeRecusacion;
     private Calendar fechaLimiteRecusacion;
+    private Usuario usuarioCreador;
+    private Carrera carrera;
     //private CargoLlamado cargos;
     //private MiembroTribunal tribunal;
     private String lugarDesignado;
    // private Sorteo sorteo;
+    private Facultad facultad;
+
+    public Concurso(Calendar fechaCreacion, Catedra catedra, Calendar fechaEstimadaConvocatoriaInscripcion, Calendar fechaEstimadaRealizacion, Usuario usuarioCreador, Carrera carrera, Facultad facultad) {
+        this.fechaCreacion = fechaCreacion;
+        this.catedra = catedra;
+        this.fechaEstimadaConvocatoriaInscripcion = fechaEstimadaConvocatoriaInscripcion;
+        this.fechaEstimadaRealizacion = fechaEstimadaRealizacion;
+        this.usuarioCreador = usuarioCreador;
+        this.carrera = carrera;
+        this.facultad = facultad;
+    }
+    
+    
 }

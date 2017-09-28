@@ -17,13 +17,13 @@ class ListaCatedra {
    
 
     private NodoCatedra frente;
-    private String[] ListaCarrera;
+    private String[] ListaCatedra;
     private int cantidad;
 
     public ListaCatedra() {
         frente = null;
         cantidad = 0;
-        ListaCarrera = null;
+        ListaCatedra = null;
     }
 
     public NodoCatedra getFrente() {
@@ -72,11 +72,11 @@ class ListaCatedra {
         return p.getInfo();
     }
 
-    public String[] ConocerCarrera() {
-        if (ListaCarrera == null) {
-            buscarCarreras();
+    public String[] ConocerCatedra() {
+        if (ListaCatedra == null) {
+            buscarCatedras();
         }
-        return ListaCarrera;
+        return ListaCatedra;
     }
 
     public boolean isEmpty() {
@@ -85,12 +85,12 @@ class ListaCatedra {
     }
 
    
-    public void buscarCarreras() {
-        ListaCarrera = new String[cantidad];
+    public void buscarCatedras() {
+        ListaCatedra = new String[cantidad];
         NodoCatedra p = frente;
-        for(int i = 0; i < ListaCarrera.length; i++) 
+        for(int i = 0; i < ListaCatedra.length; i++) 
         {
-            ListaCarrera[i]=p.getInfo().mostrarNombre();
+            ListaCatedra[i]=p.getInfo().getNombre();
             p=p.getNext();
         }
  

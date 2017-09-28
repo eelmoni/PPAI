@@ -64,30 +64,32 @@ ListaCatedra catedras;
         return aux1;
 
     }
-    public String getFacultadUsuarioLogueado(){
-        Facultad f1=new Facultad("FRC","La mas piola");
-                Usuario u = new Usuario("admin","admin");
-        u.setFacultad(f1);
-        Sesion s=new Sesion(u);
+    public String getFacultadUsuarioLogueado(Sesion s){
+
         return s.getUser().getFacultad().getNombre();
         
 //return this.sesionActiva.getUser().getFacultad().getNombre();
     }
   
     public String[] buscarCatedras() {
+        String x[]=new String[this.catedras.getCantidad()];
         Iterador it = crearIterador();
         it.primero();
-        String x[]=new String[this.catedras.getCantidad()];
+        int i=0;
+        
 
         while (!it.haTerminado()) {
-            int i=0;
-            if (it.cumpleFiltro()) {
-                x[i]=it.actual().getInfo().mostrarNombre();
-            }
+            
+                x[i]=it.actual().getInfo().getNombre();
+                
+                
+               
+            i++;
             it.siguiente();
         }
         return x;
     }
+    
 
     public void setSesionActiva(Sesion sesionActiva) {
         this.sesionActiva = sesionActiva;

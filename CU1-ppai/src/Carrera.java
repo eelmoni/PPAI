@@ -11,11 +11,13 @@
 public class Carrera {
 private String nombre;
 private String descripcion;
+private Facultad facultad;
 private ListaCatedra catedras;
 
-    public Carrera(String nombre, String descripcion) {
+    public Carrera(String nombre, String descripcion, Facultad facultad) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.facultad=facultad;
     }
 
     public String getNombre() {
