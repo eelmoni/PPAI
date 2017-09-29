@@ -3,6 +3,11 @@ import java.util.*;
 public class HistorialEstadoConcurso {
     private Calendar fecha;
     private EstadoConcurso estado;
+
+    @Override
+    public String toString() {
+        return "HistorialEstadoConcurso \n " + "estado=" + estado ;
+    }
     private String comentarios;
 
     public HistorialEstadoConcurso(Calendar fecha, EstadoConcurso estado, String comentarios) {

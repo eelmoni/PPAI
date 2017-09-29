@@ -86,7 +86,7 @@ public class Main {
             for (int i = 0; i < carreras.length; i++) {
                 System.out.println((i+1)+"-"+carreras[i]);
             }
-            carrera=In.readInt();//ingresa por teclado la carrera que eligio, no se como hacer para que use el objeto, bah no me puse, mas facil asi
+            carrera=In.readInt();
                     break;
                 case 2:
                     for (int i = 0; i < catedrasCarrera.length; i++) {
@@ -95,7 +95,7 @@ public class Main {
                    catedra= In.readInt();
                     break;
                 case 3://mostrar categorias y pedir cantidad de cargos
-                    for (int i = 0; i < categorias.length; i++) {//muestro las categorias del vector que defini mas arriba
+                    for (int i = 0; i < categorias.length; i++) {
                         System.out.println((i+1)+"-"+categorias[i].getNombre());
                         
                     }
@@ -138,7 +138,7 @@ public class Main {
                      Rea=new GregorianCalendar();
                     Rea.set(2017,(mesRea-1),diaRea);   
                     
-                    SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");//estas dos lineas son para pasar de calendar a String con formato yyyy-mm-dd
+                    SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
                     String formattedRea = format1.format(Rea.getTime());    
                     break; 
              case 5://creacion seteo de estado y muestra

@@ -40,7 +40,7 @@ private ListaCatedra catedras;
 
     @Override
     public String toString() {
-        return "Carrera \n " + "nombre=" + nombre + ", descripcion=" + descripcion + ", facultad=" + facultad + ", catedras=" + catedras ;
+        return "Carrera \n " + "nombre=" + nombre + ", descripcion=" + descripcion  ;
     }
 
 }
