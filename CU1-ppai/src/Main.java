@@ -52,25 +52,20 @@ public class Main {
         categorias[1]=cc2;
         categorias[2]=cc3;
 
-//        Facultad f1=new Facultad("FRC","La mas piola");
-//                Usuario u = new Usuario("admin","admin");
-//        u.setFacultad(f1);
-//        Sesion s=new Sesion(u);
-        //gec.setSesionActiva(s);
+
         gec.setCarreras(l2);
         gec.setCatedras(l3);
-        String[] x = gec.buscarCatedras();
-
-        for (int i = 0; i < x.length; i++) {
-             System.out.println(x[i]);
-        }
+        
 
         String carrera;
+        int catedra=0;
         CargoLlamado cadjunto;
         CargoLlamado cjtp;
         CargoLlamado ctitular;
-        Calendar Ins;
-        Calendar Rea;
+        Calendar Ins=null;
+        Calendar Rea=null;
+        
+        String[] catedrasCarrera = gec.buscarCatedras();
         
         //MAIN
         int opc;
@@ -79,10 +74,9 @@ public class Main {
             System.out.println("1.Seleccionar carrera");
             System.out.println("2.Seleccionar catedra");
             System.out.println("3.Ingresar cantidad de cargos por categoria, en caso de no haber, escriba '0'");
-            System.out.println("4.Ingrese cantidad de cargos por categoria");
-            System.out.println("5.Ingrese fecha estimada de inscripcion y realizacion de concurso");
-            System.out.println("6.Creas convocatoria");
-            System.out.println("7.Salir");
+            System.out.println("4.Ingrese fecha estimada de inscripcion y realizacion de concurso");
+            System.out.println("5.Creas convocatoria");
+            System.out.println("6.Salir");
 
             opc=In.readInt();
             switch(opc){
@@ -96,7 +90,10 @@ public class Main {
             carrera=In.readString();//ingresa por teclado la carrera que eligio, no se como hacer para que use el objeto, bah no me puse, mas facil asi
                     break;
                 case 2:
-                    
+                    for (int i = 0; i < catedrasCarrera.length; i++) {
+                         System.out.println((i+1)+"-"+catedrasCarrera[i]);
+                    }
+                   catedra= In.readInt();
                     break;
                 case 3://mostrar categorias y pedir cantidad de cargos
                     for (int i = 0; i < categorias.length; i++) {//muestro las categorias del vector que defini mas arriba
@@ -110,28 +107,24 @@ public class Main {
                     System.out.println("Ingrese la cantidad de cargos para JTP:");
                     int JTP=In.readInt();
                     if (titular!=0) {//si no pide cargos para alguna catego, el cargo llamado no se crea
-                         ctitular=new CargoLlamado(cc1,titular);
+                        ctitular=new CargoLlamado(cc1,titular);
                     }
                     if (adjunto!=0) {
-                                          cadjunto=new CargoLlamado(cc2,adjunto);
+                        cadjunto=new CargoLlamado(cc2,adjunto);
    
                     }
                     if (JTP!=0) {
-                                             cjtp=new CargoLlamado(cc3,JTP);
+                        cjtp=new CargoLlamado(cc3,JTP);
                     }
-                    
-
-                    
+                                       
                     break;
-                case 4://cantidad de cargos por categoria
-                    
-                    break;       
-             case 5://fecha estimada inscripcion, fecha estimada realizacion
+                
+                case 4://fecha estimada inscripcion, fecha estimada realizacion
                     System.out.println("Ingrese el dia de la fecha estimada de inscripcion");
                     int diaIns=In.readInt();
                     System.out.println("Ingrese el mes de la fecha estimada de inscripcion");
                     int mesIns=In.readInt();
-                     Ins = new GregorianCalendar();
+                    Ins = new GregorianCalendar();
                     Ins.set(2017, (mesIns - 1), diaIns);
                     SimpleDateFormat format2=new SimpleDateFormat("yyyy-MM-dd");
                     String formattedIns = format2.format(Ins.getTime());
@@ -141,13 +134,14 @@ public class Main {
                     int mesRea=In.readInt();
                      Rea=new GregorianCalendar();
                     Rea.set(2017,(mesRea-1),diaRea);   
-                    //si hace falta pasarlas a string para printearlas, las dos siguientes lineas usar debes ah re maestro yoda
+                    
                     SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");//estas dos lineas son para pasar de calendar a String con formato yyyy-mm-dd
                     String formattedRea = format1.format(Rea.getTime());    
                     break; 
-             case 6://creacion seteo de estado y muestra
-                    //            Concurso newConcurso=new Concurso();
-//            newConcurso.EstadoGenerada();         
+             case 5://creacion seteo de estado y muestra
+                 Calendar now = Calendar.getInstance();
+                    Concurso c = new Concurso(now, l3.getNodeByIndex(catedra - 1), Ins, Rea, u, c2, f1);
+                // c.EstadoGenerada();         
                     break;
             }
             
@@ -156,7 +150,7 @@ public class Main {
             
             
 
-        } while (opc != 7);
+        } while (opc != 6);
 
     }
 

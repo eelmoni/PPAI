@@ -71,6 +71,20 @@ class ListaCatedra {
         }
         return p.getInfo();
     }
+    
+    public Catedra getNodeByIndex(int index) {
+        if (frente == null) {
+            throw new NoSuchElementException("Error: la lista esta vacia...");
+        }
+        NodoCatedra p = frente;
+        int count = 0;
+        while (p.getNext() != null) {
+            p = p.getNext();
+            if (count == index) break;
+            count++;
+        }
+        return p.getInfo();
+    }
 
     public String[] ConocerCatedra() {
         if (ListaCatedra == null) {

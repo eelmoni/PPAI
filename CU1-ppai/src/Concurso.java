@@ -36,7 +36,11 @@ public class Concurso {
     private Facultad facultad;
     private EstadoConcurso estado;
 
-    public Concurso(Calendar fechaCreacion, Catedra catedra, Calendar fechaEstimadaConvocatoriaInscripcion, Calendar fechaEstimadaRealizacion, Usuario usuarioCreador, Carrera carrera, Facultad facultad) {
+    public Concurso(Calendar fechaCreacion, Catedra catedra,
+            Calendar fechaEstimadaConvocatoriaInscripcion,
+            Calendar fechaEstimadaRealizacion, Usuario usuarioCreador,
+            Carrera carrera, Facultad facultad) 
+    {
         this.fechaCreacion = fechaCreacion;
         this.catedra = catedra;
         this.fechaEstimadaConvocatoriaInscripcion = fechaEstimadaConvocatoriaInscripcion;
@@ -46,7 +50,8 @@ public class Concurso {
         this.facultad = facultad;
     }
     
-    public void EstadoGenerada(){
-        estado=new Definido();
+    public void tomarEstadoConcurso(EstadoConcurso estado)
+    {
+        
     }
 }
