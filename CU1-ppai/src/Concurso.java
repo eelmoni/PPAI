@@ -81,6 +81,14 @@ public class Concurso {
     public void setNumeroExpediente(int numeroExpediente) {
         this.numeroExpediente = numeroExpediente;
     }
+    
+    public ArrayList<CargoLlamado> getCargos() {
+        return cargos;
+    }
+
+    public void setCargos(ArrayList<CargoLlamado> cargos) {
+        this.cargos = cargos;
+    }
 
     public Catedra getCatedra() {
         return catedra;
@@ -158,6 +166,7 @@ public class Concurso {
         
         return formattedDate;
     }
+    
     public void addCargoLlamado(CargoLlamado cl)
     {
         this.cargos.add(cl);

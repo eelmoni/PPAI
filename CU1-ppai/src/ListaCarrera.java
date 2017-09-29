@@ -68,6 +68,21 @@ public class ListaCarrera {
         }
         return p.getInfo();
     }
+    
+    public Carrera getNodeByIndex(int index) {
+        if (frente == null) {
+            throw new NoSuchElementException("Error: la lista esta vacia...");
+        }
+        NodoCarrera p = frente;
+        int count = 0;
+        while (p != null) {
+            if (count == index) break;
+            p = p.getNext();
+            count++;
+        }
+        
+        return p.getInfo();
+    }
 
     public String[] getListaUni() {
         if (listaCarrera == null) {
