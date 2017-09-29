@@ -25,13 +25,13 @@ public class Main {
     public static void main(String[] args) {
         //creo facultad, sesion y usuario y cargo la facultad a la lista
         Facultad f1 = new Facultad("FRC", "Facultad Regional Cordoba");
-      //  Facultad f2 = new Facultad("FR", "Facultad Regional");
+        // Facultad f2 = new Facultad("FR", "Facultad Regional");
         Usuario u = new Usuario("admin", "admin", f1);
         Sesion s = new Sesion(u);
         ListaFacultades l1 = new ListaFacultades();
         l1.addFirst(f1);
-       // l1.addFirst(f2);
-       //creo carreras relacionadas a la facultad y meto a la lista
+        // l1.addFirst(f2);
+        //creo carreras relacionadas a la facultad y meto a la lista
         Carrera c1 = new Carrera("Ingenieria en sistemas de informacion", "ISI",f1);
         Carrera c2 = new Carrera("Ingenieria industrial", "II",f1);
         ListaCarrera l2 = new ListaCarrera();
@@ -59,21 +59,18 @@ public class Main {
         //gec.setSesionActiva(s);
         gec.setCarreras(l2);
         gec.setCatedras(l3);
-     String[] x = gec.buscarCatedrass();
+        String[] x = gec.buscarCatedras();
 
-      for (int i = 0; i < x.length; i++) {
-           System.out.println(x[i]);
-      }
+        for (int i = 0; i < x.length; i++) {
+             System.out.println(x[i]);
+        }
 
-String carrera;
+        String carrera;
         CargoLlamado cadjunto;
         CargoLlamado cjtp;
         CargoLlamado ctitular;
         Calendar Ins;
         Calendar Rea;
-        
-        
-        
         
         //MAIN
         int opc;

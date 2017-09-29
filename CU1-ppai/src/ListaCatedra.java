@@ -121,12 +121,12 @@ class ListaCatedra {
         @Override
         public boolean haTerminado() {
             if (frente == null) {
-                return false;
+                return true;
             }
-            if (actual != null && actual.getNext() == null) {
-                return false;
+            if (actual == null) {
+                return true;
             }
-            return true;
+            return false;
         }
 
         @Override
@@ -148,6 +148,8 @@ class ListaCatedra {
         public void siguiente() {
             if (actual != null && actual.getNext() != null) {
                 actual = actual.getNext();
+            } else if (actual != null && actual.getNext() == null) {
+                actual = null;
             }
         }
 
