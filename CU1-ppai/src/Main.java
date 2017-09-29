@@ -1,6 +1,7 @@
 
 import In.In;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -57,7 +58,7 @@ public class Main {
         gec.setCatedras(l3);
         
         Concurso c= new Concurso();
-        String carrera;
+        int carrera=0;
         int catedra=0;
         CargoLlamado cadjunto;
         CargoLlamado cjtp;
@@ -87,7 +88,7 @@ public class Main {
             for (int i = 0; i < carreras.length; i++) {
                 System.out.println((i+1)+"-"+carreras[i]);
             }
-            carrera=In.readString();//ingresa por teclado la carrera que eligio, no se como hacer para que use el objeto, bah no me puse, mas facil asi
+            carrera=In.readInt();//ingresa por teclado la carrera que eligio, no se como hacer para que use el objeto, bah no me puse, mas facil asi
                     break;
                 case 2:
                     for (int i = 0; i < catedrasCarrera.length; i++) {
@@ -106,17 +107,18 @@ public class Main {
                     int adjunto=In.readInt();
                     System.out.println("Ingrese la cantidad de cargos para JTP:");
                     int JTP=In.readInt();
+                    c.setCargos(new ArrayList<CargoLlamado>());
                     if (titular!=0) {//si no pide cargos para alguna catego, el cargo llamado no se crea
-                        ctitular=new CargoLlamado(cc1,titular);
-                       c.addCargoLlamado(ctitular);
+                        ctitular = new CargoLlamado(cc1,titular);
+                        c.addCargoLlamado(ctitular);
                     }
                     if (adjunto!=0) {
-                        cadjunto=new CargoLlamado(cc2,adjunto);
+                        cadjunto = new CargoLlamado(cc2,adjunto);
                         c.addCargoLlamado(cadjunto);
    
                     }
                     if (JTP!=0) {
-                        cjtp=new CargoLlamado(cc3,JTP);
+                        cjtp = new CargoLlamado(cc3,JTP);
                         c.addCargoLlamado(cjtp);
                     }
                                        
@@ -142,21 +144,20 @@ public class Main {
                     String formattedRea = format1.format(Rea.getTime());    
                     break; 
              case 5://creacion seteo de estado y muestra
-                 Calendar now = Calendar.getInstance();
-                    //Concurso c = new Concurso(now, l3.getNodeByIndex(catedra - 1), Ins, Rea, u, c2, f1);
+                    Calendar now = Calendar.getInstance();
+                    c.setFechaCreacion(now);
+                    c.setCarrera(l2.getNodeByIndex(carrera - 1));
+                    c.setCatedra(l3.getNodeByIndex(catedra - 1));
+                    c.setFechaEstimadaConvocatoriaInscripcion(Ins);
+                    c.setFechaEstimadaRealizacion(Rea);
+                    c.setUsuarioCreador(u);
+                    c.setFacultad(f1);
                     EstadoConcurso est= new Definido();
                     c.tomarEstadoConcurso(est);
                     System.out.println(c.toString());
                     break;
             }
-            
-            
-            
-            
-            
-
         } while (opc != 6);
-
     }
 
 }

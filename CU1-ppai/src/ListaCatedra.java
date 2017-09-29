@@ -78,11 +78,12 @@ class ListaCatedra {
         }
         NodoCatedra p = frente;
         int count = 0;
-        while (p.getNext() != null) {
-            p = p.getNext();
+        while (p != null) {
             if (count == index) break;
+            p = p.getNext();
             count++;
         }
+        
         return p.getInfo();
     }
 
