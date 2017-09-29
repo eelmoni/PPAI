@@ -53,7 +53,7 @@ public String mostrarNombre(){
 
     @Override
     public String toString() {
-        return "Facultad{" + "nombre=" + nombre  + '}';
+        return "Facultad \n" + "nombre=" + nombre  ;
     }
 
 

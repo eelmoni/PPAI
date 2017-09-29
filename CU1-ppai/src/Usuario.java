@@ -9,6 +9,8 @@
  * @author Usuario
  */
 public class Usuario {
+
+    
     private Facultad facultad;
     private String user;
     private String pass;
@@ -43,5 +45,8 @@ public class Usuario {
     public void setPass(String pass) {
         this.pass = pass;
     }
-    
+    @Override
+    public String toString() {
+        return "Usuario \n " + "facultad=" + facultad + ", user=" + user + ", pass=" + pass ;
+    }
 }

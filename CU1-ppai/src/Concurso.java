@@ -21,12 +21,12 @@ public class Concurso {
         return "Concurso Creado: \n{" + "fechaCreacion="
                 + this.formatDate(fechaCreacion) + 
                 
-                ", catedra=" + catedra +
+                ", catedra=" + catedra.mostrarCatedra() +
                 ", fechaEstimadaConvocatoriaInscripcion="
                 + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + 
                 ", fechaEstimadaRealizacion=" + this.formatDate(fechaEstimadaRealizacion) + 
-                ", usuarioCreador=" + usuarioCreador + ", carrera=" + carrera + 
-                ", facultad=" + facultad +
+                ", usuarioCreador=" + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
+                ", facultad=" + facultad.toString() +
                 ", estado=" + estado + '}';
     }
     
