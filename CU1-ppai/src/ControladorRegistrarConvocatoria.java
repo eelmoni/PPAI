@@ -21,7 +21,6 @@ public class ControladorRegistrarConvocatoria implements IAgregado{
  int cantidadCargos;
  Calendar fechaEstimadaRealizacion;
  Calendar fechaEstimadaInscripcion;
-//private EstadoConcurso estado;
  Categoria categoria;
  Sesion sesionActiva;
 ListaCarrera carreras;
@@ -86,7 +85,7 @@ ListaCatedra catedras;
 
         return s.getUser().getFacultad().getNombre();
         
-//return this.sesionActiva.getUser().getFacultad().getNombre();
+
     }
   
     public String[] buscarCatedras() {
