@@ -10,21 +10,21 @@
  */
 public class CargoLlamado 
 {
-    private Categoria catego;
+    private Categoria categoria;
     private int cantidad;
    // private Inscripcion ins;
 
     public CargoLlamado(Categoria catego, int cantidad) {
-        this.catego = catego;
+        this.categoria = catego;
         this.cantidad = cantidad;
     }
 
-    public Categoria getCatego() {
-        return catego;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCatego(Categoria catego) {
-        this.catego = catego;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public int getCantidad() {
@@ -34,5 +34,11 @@ public class CargoLlamado
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    @Override
+    public String toString() {
+        return "Cargo Llamado{" + categoria + ", cantidad=" + cantidad + '}';
+    }
+    
     
 }

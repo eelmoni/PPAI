@@ -69,6 +69,10 @@ public class Main {
         //MAIN
         int opc;
         do {
+            System.out.println("\n");
+            System.out.println("\n");
+            System.out.println("\n");
+ 
             System.out.println("Registrar convocatoria Docente");
             System.out.println("1.Seleccionar carrera");
             System.out.println("2.Seleccionar catedra");
@@ -77,10 +81,11 @@ public class Main {
             System.out.println("5.Creas convocatoria");
             System.out.println("6.Salir");
 
+
             opc=In.readInt();
             switch(opc){
                 case 1:
-                                System.out.println("El usuario logueado:" +u.getUser()+" pertenece a la facultad:" + u.getFacultad().mostrarNombre());
+                                System.out.println("El usuario logueado: " +u.getUser()+" pertenece a la facultad: " + u.getFacultad().mostrarNombre());
             System.out.println("Las carreras disponibles son las siguientes, seleccione la deseada:");
             String[] carreras=gec.buscarCarreras();//muestro todas las carreras para la facultad
             for (int i = 0; i < carreras.length; i++) {
@@ -128,7 +133,7 @@ public class Main {
                     System.out.println("Ingrese el mes de la fecha estimada de inscripcion");
                     int mesIns=In.readInt();
                     Ins = new GregorianCalendar();
-                    Ins.set(2017, (mesIns - 1), diaIns);
+                    Ins.set(2017, (mesIns), diaIns);
                     SimpleDateFormat format2=new SimpleDateFormat("yyyy-MM-dd");
                     String formattedIns = format2.format(Ins.getTime());
                     System.out.println("Ingrese el dia de la fecha estimada de realizacion");
@@ -136,7 +141,7 @@ public class Main {
                     System.out.println("Ingrese el mes de la fecha estimada de realizacion");
                     int mesRea=In.readInt();
                      Rea=new GregorianCalendar();
-                    Rea.set(2017,(mesRea-1),diaRea);   
+                    Rea.set(2017,(mesRea),diaRea);   
                     
                     SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
                     String formattedRea = format1.format(Rea.getTime());    
@@ -153,6 +158,12 @@ public class Main {
                     EstadoConcurso est= new Definido();
                     c.tomarEstadoConcurso(est);
                     System.out.println(c.toString());
+                    
+                    Object ret[]= c.getCargos().toArray();
+                    for (int i = 0; i < ret.length; i++) {
+                        System.out.println(ret[i].toString());
+                        
+                                    }
                     break;
             }
         } while (opc != 6);

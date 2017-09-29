@@ -57,7 +57,7 @@ public class Catedra {
     }
 
     public String mostrarCatedra() {
-        return "Catedra{" + "nombre=" + nombre + ", codigo=" + codigo + ", nivel=" + nivel + ", sigla=" + sigla + '}';
+        return "" + "nombre=" + nombre + ", codigo=" + codigo + ", nivel=" + nivel + ", sigla=" + sigla + '}';
     }
  
     

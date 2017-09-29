@@ -21,13 +21,13 @@ public class Concurso {
         return "Concurso Creado: \n{" + "fechaCreacion="
                 + this.formatDate(fechaCreacion) + 
                 
-                ", catedra=" + catedra.mostrarCatedra() +
-                ", fechaEstimadaConvocatoriaInscripcion="
+                ", Catedra=" + catedra.mostrarCatedra() +"\n "+
+                ", Fecha Estimada de Inscripcion="
                 + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + 
-                ", fechaEstimadaRealizacion=" + this.formatDate(fechaEstimadaRealizacion) + 
-                ", usuarioCreador=" + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
+                ", Fecha Estimada Realizacion de Concurso=" + this.formatDate(fechaEstimadaRealizacion)+"\n " + 
+                "," + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
                 ", facultad=" + facultad.toString() +
-                ", estado=" + estado + '}';
+                ", estado=" + estado.toString() + '}'; //toString borrable
     }
     
     private Calendar fechaCreacion;
@@ -59,13 +59,14 @@ public class Concurso {
     {
         this.fechaCreacion = fechaCreacion;
         this.catedra = catedra;
-        this.fechaEstimadaConvocatoriaInscripcion = fechaEstimadaConvocatoriaInscripcion;
+        this.fechaEstimadaConvocatoriaInscripcion =
+                fechaEstimadaConvocatoriaInscripcion;
         this.fechaEstimadaRealizacion = fechaEstimadaRealizacion;
         this.usuarioCreador = usuarioCreador;
         this.carrera = carrera;
         this.facultad = facultad;
     }
-
+    
     public Calendar getFechaCreacion() {
         return fechaCreacion;
     }
@@ -102,7 +103,8 @@ public class Concurso {
         return fechaEstimadaConvocatoriaInscripcion;
     }
 
-    public void setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscripcion) {
+    public void 
+setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscripcion) {
         this.fechaEstimadaConvocatoriaInscripcion = fechaEstimadaConvocatoriaInscripcion;
     }
 

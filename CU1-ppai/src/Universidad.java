@@ -38,16 +38,12 @@ public class Universidad {
         this.listaFacu = listaFacu;
     }
 
-//    public String buscarProvincia(GestorEdicionCongreso gestor) {
-//        return seleccionada.conocerCiudad(gestor);
-//    }
-
-    //GETTER
+    
     public String getNombre() {
         return nombre;
     }
 
-    //SETTER
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
