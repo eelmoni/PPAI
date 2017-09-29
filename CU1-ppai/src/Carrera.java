@@ -11,6 +11,7 @@
 public class Carrera {
 private String nombre;
 private String descripcion;
+
 private Facultad facultad;
 private ListaCatedra catedras;
 
@@ -37,5 +38,9 @@ private ListaCatedra catedras;
     }
 
 
+    @Override
+    public String toString() {
+        return "Carrera \n " + "nombre=" + nombre + ", descripcion=" + descripcion + ", facultad=" + facultad + ", catedras=" + catedras ;
+    }
 
 }
