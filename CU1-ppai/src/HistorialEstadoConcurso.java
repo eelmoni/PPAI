@@ -5,7 +5,14 @@ public class HistorialEstadoConcurso {
     private EstadoConcurso estado;
     private String comentarios;
 
+    public HistorialEstadoConcurso(Calendar fecha, EstadoConcurso estado, String comentarios) {
+        this.fecha = fecha;
+        this.estado = estado;
+        this.comentarios = comentarios;
+    }
+
     public HistorialEstadoConcurso() {
+        
     }
 
     public Calendar getFecha() {

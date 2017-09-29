@@ -51,12 +51,12 @@ public class Main {
         categorias[0]=cc1;
         categorias[1]=cc2;
         categorias[2]=cc3;
-
+        
 
         gec.setCarreras(l2);
         gec.setCatedras(l3);
         
-
+        Concurso c= new Concurso();
         String carrera;
         int catedra=0;
         CargoLlamado cadjunto;
@@ -108,13 +108,16 @@ public class Main {
                     int JTP=In.readInt();
                     if (titular!=0) {//si no pide cargos para alguna catego, el cargo llamado no se crea
                         ctitular=new CargoLlamado(cc1,titular);
+                       c.addCargoLlamado(ctitular);
                     }
                     if (adjunto!=0) {
                         cadjunto=new CargoLlamado(cc2,adjunto);
+                        c.addCargoLlamado(cadjunto);
    
                     }
                     if (JTP!=0) {
                         cjtp=new CargoLlamado(cc3,JTP);
+                        c.addCargoLlamado(cjtp);
                     }
                                        
                     break;
@@ -140,8 +143,10 @@ public class Main {
                     break; 
              case 5://creacion seteo de estado y muestra
                  Calendar now = Calendar.getInstance();
-                    Concurso c = new Concurso(now, l3.getNodeByIndex(catedra - 1), Ins, Rea, u, c2, f1);
-                // c.EstadoGenerada();         
+                    //Concurso c = new Concurso(now, l3.getNodeByIndex(catedra - 1), Ins, Rea, u, c2, f1);
+                    EstadoConcurso est= new Definido();
+                    c.tomarEstadoConcurso(est);
+                    System.out.println(c.toString());
                     break;
             }
             
