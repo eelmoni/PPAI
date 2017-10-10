@@ -6,7 +6,7 @@ public class HistorialEstadoConcurso {
 
     @Override
     public String toString() {
-        return "HistorialEstadoConcurso \n " + "estado=" + estado ;
+        return "HistorialEstadoConcurso " + "estado=" + estado ;
     }
     private String comentarios;
 

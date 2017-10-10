@@ -18,17 +18,24 @@ public class Concurso {
     @Override
     public String toString() {
         
-        return "Concurso Creado: \n{" + "fechaCreacion="
-                + this.formatDate(fechaCreacion) + 
-                
-                ", Catedra=" + catedra.mostrarCatedra() +"\n "+
-                ", Fecha Estimada de Inscripcion="
-                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + 
-                ", Fecha Estimada Realizacion de Concurso=" + this.formatDate(fechaEstimadaRealizacion)+"\n " + 
-                "," + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
-                  facultad.toString() +
-                ", estado=" + estado.toString() + '}'
-                ; //toString borrable
+        return 
+                "///////////////////////////////////////////////////////////"+
+                "\n"+
+                "Fecha de Creacion " 
+                + this.formatDate(fechaCreacion) +"\n" +
+                "Catedra : " + catedra.mostrarCatedra() +"\n"+
+                "Fecha Estimada de Inscripcion "
+                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) +"\n" + 
+                "Fecha Estimada Realizacion de Concurso " + this.formatDate(fechaEstimadaRealizacion)+"\n"+
+                "///////////////////////////////////////////////////////////"
+                +"\n" +"Informacion del Usuario:" +"\n"+                
+                  usuarioCreador.toString()+ 
+                "///////////////////////////////////////////////////////////"
+                +"\n" +"Informacion de la Carrera Y Facultad:" +"\n"+ carrera.toString() + 
+                  facultad.toString()+
+                "///////////////////////////////////////////////////////////"+ 
+                "\n" +
+                  estado.toString() + "\n"; 
     }
     
     private Calendar fechaCreacion;

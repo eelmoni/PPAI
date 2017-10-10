@@ -258,10 +258,12 @@ public class Main {
                     System.out.println(nuevo.toString());
                      //esto de abajo hay que ponerlo en el toString de Concurso para que muestre los cargos del arreglo
                     Object ret[]= nuevo.getCargos().toArray();
+                    System.out.println("///////////////////////////////////////////////////////////");
                     for (int i = 0; i < ret.length; i++) 
                     {
                         System.out.println(ret[i].toString());
                     }
+                    System.out.println("///////////////////////////////////////////////////////////");
                     break;
             }
         } while (opc != 6);
