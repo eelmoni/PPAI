@@ -26,7 +26,7 @@ public class Concurso {
                 + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + 
                 ", Fecha Estimada Realizacion de Concurso=" + this.formatDate(fechaEstimadaRealizacion)+"\n " + 
                 "," + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
-                ", facultad=" + facultad.toString() +
+                  facultad.toString() +
                 ", estado=" + estado.toString() + '}'
                 ; //toString borrable
     }

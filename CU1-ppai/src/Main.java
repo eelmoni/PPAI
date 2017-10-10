@@ -18,11 +18,7 @@ import java.util.GregorianCalendar;
 public class Main {
 
     public static ControladorRegistrarConvocatoria gec = new ControladorRegistrarConvocatoria();
-
-    ;
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
 
              //la catedra se agrega a la lista de catedras de ESA carrera
@@ -134,39 +130,31 @@ public class Main {
                 
                 
                 case 1: // CORREGIDO
-                                System.out.println("El usuario logueado: " +gec.obtenerSesion().obtenerNombreUsuarioLogueado()+" pertenece a la facultad: " + gec.obtenerSesion().obtenerFacultad().mostrarNombre());
-            System.out.println("Las carreras disponibles son las siguientes, seleccione la deseada:");
-            String[] carreras=gec.buscarCarreras();//muestro todas las carreras para la facultad (corregido)
-            for (int i = 0; i < carreras.length; i++) {
-                System.out.println((i+1)+"-"+carreras[i]);
-            }
-            carrera=In.readInt();
-            gec.setFacultad(gec.obtenerSesion().obtenerFacultad());
-            gec.setCarrera(gec.obtenerSesion().obtenerFacultad().getCarreras().getNodeByIndex(carrera - 1));
-            
-                    break;
-                    
-                    
-                    
-                    
+                    System.out.println("El usuario logueado: " +gec.obtenerSesion().obtenerNombreUsuarioLogueado()+" pertenece a la facultad: " + gec.obtenerSesion().obtenerFacultad().mostrarNombre());
+                    System.out.println("Las carreras disponibles son las siguientes, seleccione la deseada:");
+                    String[] carreras=gec.buscarCarreras();//muestro todas las carreras para la facultad (corregido)
+                    for (int i = 0; i < carreras.length; i++) 
+                    {
+                        System.out.println((i+1)+"-"+carreras[i]);
+                    }
+                    carrera=In.readInt();
+                    gec.setFacultad(gec.obtenerSesion().obtenerFacultad());
+                    gec.setCarrera(gec.obtenerSesion().obtenerFacultad().getCarreras().getNodeByIndex(carrera - 1));
+
+                    break;         
                     
                     
                 case 2:
                     //mostrar las catedras y pedir el numero de referencia
                     catedrasCarrera=gec.carrera.buscarCatedras(); //metodo con iterator implementado
                     
-                    for (int i = 0; i < catedrasCarrera.length; i++) {
+                    for (int i = 0; i < catedrasCarrera.length; i++)
+                    {
                          System.out.println((i+1)+"-"+catedrasCarrera[i]);
                     }
-                   catedra= In.readInt();
+                    catedra= In.readInt();
                     gec.setCatedra(gec.carrera.getCatedras().getNodeByIndex(catedra - 1));
-                   
                     break;
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -181,6 +169,8 @@ public class Main {
                     int adjunto=In.readInt();
                     System.out.println("Ingrese la cantidad de cargos para JTP:");
                     int JTP=In.readInt();
+                    
+                    
                     //CAMBIAR
                     //que el arraylist de cargos llamados se cree en EL GESTOR para evitar la creacion 
                     //vacia del concurso y luego se lo pase por parametro para la creacion completa la final
@@ -191,13 +181,14 @@ public class Main {
                         cargos.add(ctitular); //lo agrego al arraylist de cargos
                         //c.addCargoLlamado(ctitular);
                     }
-                    if (adjunto!=0) {
+                    if (adjunto!=0) 
+                    {
                         cadjunto = new CargoLlamado(cc2,adjunto);
                         cargos.add(cadjunto);
                         //c.addCargoLlamado(cadjunto);
-   
                     }
-                    if (JTP!=0) {
+                    if (JTP!=0)
+                    {
                         cjtp = new CargoLlamado(cc3,JTP);
                         cargos.add(cjtp);
                         //c.addCargoLlamado(cjtp);
@@ -216,30 +207,32 @@ public class Main {
                     
                 //C A S E 4 ESTA OK
                 case 4://fecha estimada inscripcion, fecha estimada realizacion
-                    System.out.println("Ingrese el dia de la fecha estimada de inscripcion");
-                    int diaIns=In.readInt();
-                    System.out.println("Ingrese el mes de la fecha estimada de inscripcion");
-                    int mesIns=In.readInt();
-                    Ins = new GregorianCalendar();
-                    Ins.set(2017, (mesIns), diaIns);
-                    gec.setFechaEstimadaInscripcion(Ins);
-                    //esto sirve por si hay que pasar a String
-//                    SimpleDateFormat format2=new SimpleDateFormat("yyyy-MM-dd");
-//                    String formattedIns = format2.format(Ins.getTime());
-                    
-                    
-                    System.out.println("Ingrese el dia de la fecha estimada de realizacion");
-                    int diaRea=In.readInt();
-                    System.out.println("Ingrese el mes de la fecha estimada de realizacion");
-                    int mesRea=In.readInt();
-                     Rea=new GregorianCalendar();
-                    Rea.set(2017,(mesRea),diaRea);   
-                    gec.setFechaEstimadaRealizacion(Rea);
-//                    SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-//                    String formattedRea = format1.format(Rea.getTime());    
                     Calendar now = Calendar.getInstance();//me devuelve la fecha actual en gregoryan calendar
-                    gec.setFechaCreacion(now);
-                   
+                    int a=1;
+                    do   
+                    {
+                        if(a==2)System.out.println("Alguna o ambas de las fechas ingresadas son anteriores al dia de hoy,o la fecha de realizacion es anterior a la de inscripicon porfavor ingrese las fechas nuevamente: ");         
+                        
+                        System.out.println("Ingrese el dia de la fecha estimada de inscripcion");
+                        int diaIns=In.readInt();
+                        System.out.println("Ingrese el mes de la fecha estimada de inscripcion");
+                        int mesIns=In.readInt();
+                        Ins = new GregorianCalendar();
+                        Ins.set(2017, (mesIns), diaIns);
+                        gec.setFechaEstimadaInscripcion(Ins);
+                        //esto sirve por si hay que pasar a String
+                        System.out.println("Ingrese el dia de la fecha estimada de realizacion");
+                        int diaRea=In.readInt();
+                        System.out.println("Ingrese el mes de la fecha estimada de realizacion");
+                        int mesRea=In.readInt();
+                        Rea=new GregorianCalendar();
+                        Rea.set(2017,(mesRea),diaRea);   
+                        gec.setFechaEstimadaRealizacion(Rea);
+                        gec.setFechaCreacion(now);
+                        a=2;
+
+                    }while(!(Rea.after(now) && Ins.after(now) && Rea.after(Ins)));
+                    System.out.println("Su carga de fecha ha sido exitosa. ");
                     break; 
                     
                     
@@ -265,10 +258,10 @@ public class Main {
                     System.out.println(nuevo.toString());
                      //esto de abajo hay que ponerlo en el toString de Concurso para que muestre los cargos del arreglo
                     Object ret[]= nuevo.getCargos().toArray();
-                    for (int i = 0; i < ret.length; i++) {
+                    for (int i = 0; i < ret.length; i++) 
+                    {
                         System.out.println(ret[i].toString());
-                        
-                                    }
+                    }
                     break;
             }
         } while (opc != 6);
