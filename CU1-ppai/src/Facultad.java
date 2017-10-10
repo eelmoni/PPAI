@@ -15,9 +15,10 @@ private String nombre;
 private ListaCarrera carreras;
 private String descripcion;
 
-    public Facultad(String nombre, String descripcion) {
+    public Facultad(String nombre, String descripcion, ListaCarrera carreras) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.carreras=carreras;
     }
 
     public String getNombre() {
@@ -34,6 +35,14 @@ private String descripcion;
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public void setCarreras(ListaCarrera carreras) {
+        this.carreras = carreras;
+    }
+
+    public ListaCarrera getCarreras() {
+        return carreras;
     }
 
 

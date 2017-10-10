@@ -27,7 +27,8 @@ public class Concurso {
                 ", Fecha Estimada Realizacion de Concurso=" + this.formatDate(fechaEstimadaRealizacion)+"\n " + 
                 "," + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
                 ", facultad=" + facultad.toString() +
-                ", estado=" + estado.toString() + '}'; //toString borrable
+                ", estado=" + estado.toString() + '}'
+                ; //toString borrable
     }
     
     private Calendar fechaCreacion;
@@ -55,7 +56,7 @@ public class Concurso {
     public Concurso(Calendar fechaCreacion, Catedra catedra,
             Calendar fechaEstimadaConvocatoriaInscripcion,
             Calendar fechaEstimadaRealizacion, Usuario usuarioCreador,
-            Carrera carrera, Facultad facultad) 
+            Carrera carrera, Facultad facultad,ArrayList<CargoLlamado> cargos) //Constructor POSTA
     {
         this.fechaCreacion = fechaCreacion;
         this.catedra = catedra;
@@ -65,6 +66,7 @@ public class Concurso {
         this.usuarioCreador = usuarioCreador;
         this.carrera = carrera;
         this.facultad = facultad;
+        this.cargos=cargos;
     }
     
     public Calendar getFechaCreacion() {

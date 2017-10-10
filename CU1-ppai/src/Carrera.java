@@ -8,17 +8,17 @@
  *
  * @author Usuario
  */
-public class Carrera {
+public class Carrera implements IAgregado{
 private String nombre;
 private String descripcion;
 
-private Facultad facultad;
 private ListaCatedra catedras;
 
-    public Carrera(String nombre, String descripcion, Facultad facultad) {
+    public Carrera(String nombre, String descripcion, ListaCatedra catedras) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.facultad=facultad;
+
+        this.catedras=catedras;
     }
 
     public String getNombre() {
@@ -37,10 +37,39 @@ private ListaCatedra catedras;
         this.descripcion = descripcion;
     }
 
+    public ListaCatedra getCatedras() {
+        return catedras;
+    }
+
+    public void setCatedras(ListaCatedra catedras) {
+        this.catedras = catedras;
+    }
+
+    
 
     @Override
     public String toString() {
         return "Carrera \n " + "nombre=" + nombre + ", descripcion=" + descripcion  ;
+    }
+
+    @Override//vamos vamos argentina
+    public Iterador crearIterador() {
+        return this.catedras.iterador();
+    }
+    
+    public String[] buscarCatedras() {
+        String x[]=new String[this.catedras.getCantidad()];
+        Iterador it = crearIterador();
+        it.primero();
+        int i=0;
+        
+
+        while (!it.haTerminado()) {            
+            x[i]=it.actual().getInfo().getNombre();  
+            i++;
+            it.siguiente();
+        }
+        return x;
     }
 
 }
