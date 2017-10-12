@@ -47,6 +47,6 @@ public class Usuario {
     }
     @Override
     public String toString() {
-        return "Usuario Creador \n " + "facultad=" + facultad.getNombre() + ", user=" + user  ;
+        return "Facultad del Usuario: " + facultad.getNombre() +"\n"+ "Nombre del Usuario Creador: " + user ;
     }
 }

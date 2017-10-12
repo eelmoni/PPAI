@@ -18,17 +18,26 @@ public class Concurso {
     @Override
     public String toString() {
         
-        return "Concurso Creado: \n{" + "fechaCreacion="
-                + this.formatDate(fechaCreacion) + 
-                
-                ", Catedra=" + catedra.mostrarCatedra() +"\n "+
-                ", Fecha Estimada de Inscripcion="
-                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + 
-                ", Fecha Estimada Realizacion de Concurso=" + this.formatDate(fechaEstimadaRealizacion)+"\n " + 
-                "," + usuarioCreador.toString() + ", carrera=" + carrera.toString() + 
-                  facultad.toString() +
-                ", estado=" + estado.toString() + '}'
-                ; //toString borrable
+        return 
+                "///////////////////////////////////////////////////////////"+
+                "\n"+
+                "Fecha de Creacion: " 
+                + this.formatDate(fechaCreacion) +"\n" +
+                "Catedra : " + catedra.mostrarCatedra() +"\n"+
+                "Fecha Estimada de Inscripcion: "
+                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) +"\n" + 
+                "Fecha Estimada Realizacion de Concurso: " + this.formatDate(fechaEstimadaRealizacion)+"\n"+
+                "///////////////////////////////////////////////////////////"
+                +"\n" +"Informacion del Usuario:" +"\n"+                
+                  usuarioCreador.toString()+ "\n"+
+                "///////////////////////////////////////////////////////////"
+                +"\n" +"Informacion de la Carrera Y Facultad:" +"\n"+ facultad.toString() +"\n"+ carrera.toString()
+                  +"\n"+
+                "///////////////////////////////////////////////////////////"+ 
+                "\n" +
+                  estado.toString() + "\n"
+                +"///////////////////////////////////////////////////////////"+ 
+                "\n" +"Cargos Llamados para Concurso:"+"\n" +this.mostrarCargosLlamados(); 
     }
     
     private Calendar fechaCreacion;
@@ -175,4 +184,32 @@ setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscri
     {
         this.cargos.add(cl);
     }
+    
+    public String mostrarCargosLlamados(){
+       Object ret[]=this.cargos.toArray();
+       StringBuilder rett = new StringBuilder().append("");
+        if (ret.length==3) 
+        {
+        rett.append("\n").append(ret[0].toString()).append("\n").append(ret[1].toString()).append("\n").append(ret[2].toString()).append("\n").append("///////////////////////////////////////////////////////////");
+        }
+        if (ret.length==2) {
+            rett.append("\n").append(ret[0].toString()).append("\n").append(ret[1].toString()).append("\n").append("///////////////////////////////////////////////////////////");
+            
+        }
+        if (ret.length==1) {
+            rett.append("\n").append(ret[0].toString()).append("\n").append("///////////////////////////////////////////////////////////");
+            
+        }
+        return rett.toString();
+    }
+//    public Object mostrarCargosLlamados(Concurso c){
+//                            Object ret[]= c.getCargos().toArray();
+//                    System.out.println("///////////////////////////////////////////////////////////");
+//                    for (int i = 0; i < ret.length; i++) 
+//                    {
+//                        System.out.println(ret[i].toString());
+//                    }
+//                    System.out.println("///////////////////////////////////////////////////////////");
+//                    return ret;
+//    }
 }

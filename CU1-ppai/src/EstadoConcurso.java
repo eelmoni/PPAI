@@ -23,5 +23,6 @@ public interface EstadoConcurso {
     public void excusar();
     public void recusar();
     public void resolver();
+    public String toString();
    
 }

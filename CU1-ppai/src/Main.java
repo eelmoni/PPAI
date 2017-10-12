@@ -118,7 +118,7 @@ public class Main {
             System.out.println("2.Seleccionar catedra");//falta arreglar
             System.out.println("3.Ingresar cantidad de cargos por categoria, en caso de no haber, escriba '0'");
             System.out.println("4.Ingrese fecha estimada de inscripcion y realizacion de concurso");
-            System.out.println("5.Creas convocatoria");
+            System.out.println("5.Crear convocatoria");
             System.out.println("6.Salir");
 
             opc=In.readInt();
@@ -208,6 +208,7 @@ public class Main {
                 //C A S E 4 ESTA OK
                 case 4://fecha estimada inscripcion, fecha estimada realizacion
                     Calendar now = Calendar.getInstance();//me devuelve la fecha actual en gregoryan calendar
+                    
                     int a=1;
                     do   
                     {
@@ -232,7 +233,7 @@ public class Main {
                         a=2;
 
                     }while(!(Rea.after(now) && Ins.after(now) && Rea.after(Ins)));
-                    System.out.println("Su carga de fecha ha sido exitosa. ");
+                    System.out.println("Su carga de fecha ha sido exitosamente. ");
                     break; 
                     
                     
@@ -257,11 +258,16 @@ public class Main {
                     nuevo.tomarEstadoConcurso(est);
                     System.out.println(nuevo.toString());
                      //esto de abajo hay que ponerlo en el toString de Concurso para que muestre los cargos del arreglo
-                    Object ret[]= nuevo.getCargos().toArray();
-                    for (int i = 0; i < ret.length; i++) 
-                    {
-                        System.out.println(ret[i].toString());
-                    }
+//                    System.out.println(nuevo.mostrarCargosLlamados(nuevo));
+                    
+                    
+//                    Object ret[]= nuevo.getCargos().toArray();
+//                    System.out.println("///////////////////////////////////////////////////////////");
+//                    for (int i = 0; i < ret.length; i++) 
+//                    {
+//                        System.out.println(ret[i].toString());
+//                    }
+//                    System.out.println("///////////////////////////////////////////////////////////");
                     break;
             }
         } while (opc != 6);

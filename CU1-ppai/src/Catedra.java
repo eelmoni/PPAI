@@ -57,7 +57,8 @@ public class Catedra {
     }
 
     public String mostrarCatedra() {
-        return "" + "nombre=" + nombre + ", codigo=" + codigo + ", nivel=" + nivel + ", sigla=" + sigla + '}';
+        return ""  + nombre + ", Código: " + codigo + ", "
+                + "Nivel: " + nivel + ", Sigla: " + sigla ;
     }
  
     
