@@ -62,7 +62,7 @@ public String mostrarNombre(){
 
     @Override
     public String toString() {
-        return " \n Facultad " + nombre +"\n" ;
+        return "\n Facultad: " + nombre +"\n" ;
     }
 
 

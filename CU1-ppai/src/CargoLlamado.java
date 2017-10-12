@@ -37,7 +37,7 @@ public class CargoLlamado
 
     @Override
     public String toString() {
-        return "Cargo Llamado{" + categoria + ", cantidad=" + cantidad + '}';
+        return "Cargo Llamado{" + categoria.getNombre() + ", Cantidad=" + cantidad + '}';
     }
     
     

@@ -49,7 +49,7 @@ private ListaCatedra catedras;
 
     @Override
     public String toString() {
-        return "Carrera:" + "\n" +" Nombre " + nombre + ", descripcion " + descripcion  ;
+        return "Carrera:" + "\n"  + nombre   ;
     }
 
     @Override//vamos vamos argentina
