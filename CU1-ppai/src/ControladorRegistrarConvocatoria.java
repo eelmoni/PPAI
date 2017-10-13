@@ -130,7 +130,9 @@ ArrayList<CargoLlamado> cargos;
 
 public Concurso registrarNuevaConvocatoria(){ //ESTE ES EL METODO MAS IMPORTANTE PARA LA REPUBLICA
     Concurso c = new Concurso(this.fechaCreacion,this.catedra,this.fechaEstimadaInscripcion,this.fechaEstimadaRealizacion,this.sesionActiva.getUser(),this.carrera,this.facultad,this.cargos);
-    return c;
+    EstadoConcurso est=c.crearEst();
+    c.tomarEstadoConcurso(est);
+     return c;
 }
 
     public void setFacultad(Facultad facultad) {

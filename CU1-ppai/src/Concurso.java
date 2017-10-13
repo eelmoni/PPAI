@@ -163,7 +163,11 @@ setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscri
     public Concurso(){
         
     }
-    
+    public EstadoConcurso crearEst()
+    {
+        EstadoConcurso est= new Definido();
+        return est;
+    }
     public void tomarEstadoConcurso(EstadoConcurso estado)
     {
         Calendar now = Calendar.getInstance();

@@ -246,7 +246,7 @@ public class Main {
                     
              case 5://creacion seteo de estado y muestra
 
-                 nuevo=gec.registrarNuevaConvocatoria();
+                    nuevo=gec.registrarNuevaConvocatoria();
                     //c.setFechaCreacion(now);
                    // c.setCarrera(l2.getNodeByIndex(carrera - 1));
                     //c.setCatedra(l3.getNodeByIndex(catedra - 1));
@@ -254,8 +254,8 @@ public class Main {
                     //c.setFechaEstimadaRealizacion(Rea);
                     //c.setUsuarioCreador(u);
                     //c.setFacultad(f1);
-                    EstadoConcurso est= new Definido();
-                    nuevo.tomarEstadoConcurso(est);
+                  //  EstadoConcurso est= new Definido();
+                    //nuevo.tomarEstadoConcurso(est);
                     System.out.println(nuevo.toString());
                      //esto de abajo hay que ponerlo en el toString de Concurso para que muestre los cargos del arreglo
 //                    System.out.println(nuevo.mostrarCargosLlamados(nuevo));
