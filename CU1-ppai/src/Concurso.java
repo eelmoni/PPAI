@@ -8,7 +8,6 @@ import java.util.Locale;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Usuario
@@ -17,29 +16,28 @@ public class Concurso {
 
     @Override
     public String toString() {
-        
-        return 
-                "///////////////////////////////////////////////////////////"+
-                "\n"+
-                "Fecha de Creacion: " 
-                + this.formatDate(fechaCreacion) +"\n" +
-                "Catedra : " + catedra.mostrarCatedra() +"\n"+
-                "Fecha Estimada de Inscripcion: "
-                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) +"\n" + 
-                "Fecha Estimada Realizacion de Concurso: " + this.formatDate(fechaEstimadaRealizacion)+"\n"+
-                "///////////////////////////////////////////////////////////"
-                +"\n" +"Informacion del Usuario:" +"\n"+                
-                  usuarioCreador.toString()+ "\n"+
-                "///////////////////////////////////////////////////////////"
-                +"\n" +"Informacion de la Carrera Y Facultad:" +"\n"+ facultad.toString() +"\n"+ carrera.toString()
-                  +"\n"+
-                "///////////////////////////////////////////////////////////"+ 
-                "\n" +
-                  estado.toString() + "\n"
-                +"///////////////////////////////////////////////////////////"+ 
-                "\n" +"Cargos Llamados para Concurso:"+"\n" +this.mostrarCargosLlamados(); 
+
+        return "///////////////////////////////////////////////////////////"
+                + "\n"
+                + "Fecha de Creacion: "
+                + this.formatDate(fechaCreacion) + "\n"
+                + "Catedra : " + catedra.mostrarCatedra() + "\n"
+                + "Fecha Estimada de Inscripcion: "
+                + this.formatDate(fechaEstimadaConvocatoriaInscripcion) + "\n"
+                + "Fecha Estimada Realizacion de Concurso: " + this.formatDate(fechaEstimadaRealizacion) + "\n"
+                + "///////////////////////////////////////////////////////////"
+                + "\n" + "Informacion del Usuario:" + "\n"
+                + usuarioCreador.toString() + "\n"
+                + "///////////////////////////////////////////////////////////"
+                + "\n" + "Informacion de la Carrera Y Facultad:" + "\n" + facultad.toString() + "\n" + carrera.toString()
+                + "\n"
+                + "///////////////////////////////////////////////////////////"
+                + "\n"
+                + estado.toString() + "\n"
+                + "///////////////////////////////////////////////////////////"
+                + "\n" + "Cargos Llamados para Concurso:" + "\n" + this.mostrarCargosLlamados();
     }
-    
+
     private Calendar fechaCreacion;
     private int numeroExpediente;
     private Catedra catedra;
@@ -60,24 +58,24 @@ public class Concurso {
     private String lugarDesignado;
     private Facultad facultad;
     private HistorialEstadoConcurso estado;
-    
 
     public Concurso(Calendar fechaCreacion, Catedra catedra,
             Calendar fechaEstimadaConvocatoriaInscripcion,
             Calendar fechaEstimadaRealizacion, Usuario usuarioCreador,
-            Carrera carrera, Facultad facultad,ArrayList<CargoLlamado> cargos) //Constructor POSTA
+            Carrera carrera, Facultad facultad, ArrayList<CargoLlamado> cargos) //Constructor POSTA
     {
         this.fechaCreacion = fechaCreacion;
         this.catedra = catedra;
-        this.fechaEstimadaConvocatoriaInscripcion =
-                fechaEstimadaConvocatoriaInscripcion;
+        this.fechaEstimadaConvocatoriaInscripcion
+                = fechaEstimadaConvocatoriaInscripcion;
         this.fechaEstimadaRealizacion = fechaEstimadaRealizacion;
         this.usuarioCreador = usuarioCreador;
         this.carrera = carrera;
         this.facultad = facultad;
-        this.cargos=cargos;
+        this.cargos = cargos;
+        this.tomarEstadoConcurso(this.crearEst());
     }
-    
+
     public Calendar getFechaCreacion() {
         return fechaCreacion;
     }
@@ -93,7 +91,7 @@ public class Concurso {
     public void setNumeroExpediente(int numeroExpediente) {
         this.numeroExpediente = numeroExpediente;
     }
-    
+
     public ArrayList<CargoLlamado> getCargos() {
         return cargos;
     }
@@ -114,8 +112,8 @@ public class Concurso {
         return fechaEstimadaConvocatoriaInscripcion;
     }
 
-    public void 
-setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscripcion) {
+    public void
+            setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscripcion) {
         this.fechaEstimadaConvocatoriaInscripcion = fechaEstimadaConvocatoriaInscripcion;
     }
 
@@ -143,8 +141,6 @@ setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscri
         this.carrera = carrera;
     }
 
-    
-
     public Facultad getFacultad() {
         return facultad;
     }
@@ -160,49 +156,48 @@ setFechaEstimadaConvocatoriaInscripcion(Calendar fechaEstimadaConvocatoriaInscri
     public void setEstado(HistorialEstadoConcurso estado) {
         this.estado = estado;
     }
-    public Concurso(){
-        
+
+    public Concurso() {
+
     }
-    public EstadoConcurso crearEst()
-    {
-        EstadoConcurso est= new Definido();
+
+    public EstadoConcurso crearEst() {
+        EstadoConcurso est = new Definido();
         return est;
     }
-    public void tomarEstadoConcurso(EstadoConcurso estado)
-    {
+
+    public void tomarEstadoConcurso(EstadoConcurso estado) {
         Calendar now = Calendar.getInstance();
-        this.estado= new HistorialEstadoConcurso(now,estado,"Se ha generado el concurso");
+        this.estado = new HistorialEstadoConcurso(now, estado, "Se ha generado el concurso");
     }
-    
+
     private String formatDate(Calendar date) {
-        String formattedDate= "";
-        
+        String formattedDate = "";
+
         formattedDate += date.get(Calendar.DAY_OF_MONTH);
         formattedDate += "/" + date.get(Calendar.MONTH);
         formattedDate += "/" + date.get(Calendar.YEAR);
-        
+
         return formattedDate;
     }
-    
-    public void addCargoLlamado(CargoLlamado cl)
-    {
+
+    public void addCargoLlamado(CargoLlamado cl) {
         this.cargos.add(cl);
     }
-    
-    public String mostrarCargosLlamados(){
-       Object ret[]=this.cargos.toArray();
-       StringBuilder rett = new StringBuilder().append("");
-        if (ret.length==3) 
-        {
-        rett.append("\n").append(ret[0].toString()).append("\n").append(ret[1].toString()).append("\n").append(ret[2].toString()).append("\n").append("///////////////////////////////////////////////////////////");
+
+    public String mostrarCargosLlamados() {
+        Object ret[] = this.cargos.toArray();
+        StringBuilder rett = new StringBuilder().append("");
+        if (ret.length == 3) {
+            rett.append("\n").append(ret[0].toString()).append("\n").append(ret[1].toString()).append("\n").append(ret[2].toString()).append("\n").append("///////////////////////////////////////////////////////////");
         }
-        if (ret.length==2) {
+        if (ret.length == 2) {
             rett.append("\n").append(ret[0].toString()).append("\n").append(ret[1].toString()).append("\n").append("///////////////////////////////////////////////////////////");
-            
+
         }
-        if (ret.length==1) {
+        if (ret.length == 1) {
             rett.append("\n").append(ret[0].toString()).append("\n").append("///////////////////////////////////////////////////////////");
-            
+
         }
         return rett.toString();
     }

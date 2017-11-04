@@ -251,7 +251,7 @@ public class Main {
                     //c.setUsuarioCreador(u);
                     //c.setFacultad(f1);
                     EstadoConcurso est= new Definido();
-                    nuevo.tomarEstadoConcurso(est);
+                    nuevo.tomarEstadoConcurso(est);//TA MAL TODO ESTO KLIA
                     System.out.println(nuevo.toString());
                      In.readInt();
                     break;

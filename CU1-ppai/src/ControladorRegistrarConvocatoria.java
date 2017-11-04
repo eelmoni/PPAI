@@ -8,43 +8,44 @@ import java.util.GregorianCalendar;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Usuario
  */
 public class ControladorRegistrarConvocatoria {
- Facultad facultad;
- Calendar fechaCreacion;
- String nombreUsuarioGenerador;
- Catedra catedra;
- Carrera carrera;
- int cantidadCargos;
- Calendar fechaEstimadaRealizacion;
- Calendar fechaEstimadaInscripcion;
- Categoria categoria;
- Sesion sesionActiva;
-ListaCarrera carreras;
-ListaCatedra catedras;
-ArrayList<CargoLlamado> cargos;
 
+    Facultad facultad;
+    Calendar fechaCreacion;
+    String nombreUsuarioGenerador;
+    Catedra catedra;
+    Carrera carrera;
+    int cantidadCargos;
+    Calendar fechaEstimadaRealizacion;
+    Calendar fechaEstimadaInscripcion;
+    Categoria categoria;
+    Sesion sesionActiva;
+    ListaCarrera carreras;
+    ListaCatedra catedras;
+    ArrayList<CargoLlamado> cargos;
 
     public ControladorRegistrarConvocatoria() {
     }
+
     public void setFechaEstimadaInscripcion(int dia, int mes) {
         Calendar ini = new GregorianCalendar();
         ini.set(2017, (mes - 1), dia);
-        this.fechaEstimadaInscripcion=ini;
+        this.fechaEstimadaInscripcion = ini;
     }
+
     public void setFechaEstimadaRealizacion(int dia, int mes) {
         Calendar ini = new GregorianCalendar();
         ini.set(2017, (mes - 1), dia);
-        this.fechaEstimadaRealizacion=ini;
+        this.fechaEstimadaRealizacion = ini;
     }
 
     public String[] buscarCarreras() { //para sacar todas las carreras
-        ListaCarrera aux= this.sesionActiva.getUser().getFacultad().getCarreras();
-        String[] aux1=new String[this.sesionActiva.getUser().getFacultad().getCarreras().getCantidad()];
+        ListaCarrera aux = this.sesionActiva.getUser().getFacultad().getCarreras();
+        String[] aux1 = new String[this.sesionActiva.getUser().getFacultad().getCarreras().getCantidad()];
         //String[] aux1 = new String[carreras.getCantidad()];
 
         if (aux.getFrente() != null) {
@@ -67,9 +68,7 @@ ArrayList<CargoLlamado> cargos;
     public void setFechaCreacion(Calendar fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
-    
-    
-    
+
 //    public String[] buscarCatedrass() { //para sacar todas las catedras
 //
 //        String[] aux1 = new String[catedras.getCantidad()];
@@ -90,16 +89,16 @@ ArrayList<CargoLlamado> cargos;
 //
 //        return aux1;
 //    }
-    public String getFacultadUsuarioLogueado(Sesion s){
+    public String getFacultadUsuarioLogueado(Sesion s) {
 
         return s.getUser().getFacultad().getNombre();
-        
 
     }
-    public Sesion obtenerSesion(){
+
+    public Sesion obtenerSesion() {
         return this.sesionActiva;
     }
-  //METODO QUE DEBE IR EN CARRERA
+    //METODO QUE DEBE IR EN CARRERA
 //    public String[] buscarCatedras() {
 //        String x[]=new String[this.catedras.getCantidad()];
 //        Iterador it = crearIterador();
@@ -115,7 +114,6 @@ ArrayList<CargoLlamado> cargos;
 //        return x;
 //    }
 
-
     public void setSesionActiva(Sesion sesionActiva) {
         this.sesionActiva = sesionActiva;
     }
@@ -128,12 +126,12 @@ ArrayList<CargoLlamado> cargos;
         this.catedras = catedras;
     }
 
-public Concurso registrarNuevaConvocatoria(){ //ESTE ES EL METODO MAS IMPORTANTE PARA LA REPUBLICA
-    Concurso c = new Concurso(this.fechaCreacion,this.catedra,this.fechaEstimadaInscripcion,this.fechaEstimadaRealizacion,this.sesionActiva.getUser(),this.carrera,this.facultad,this.cargos);
-    EstadoConcurso est=c.crearEst();
-    c.tomarEstadoConcurso(est);
-     return c;
-}
+    public Concurso registrarNuevaConvocatoria() { //ESTE ES EL METODO MAS IMPORTANTE PARA LA REPUBLICA
+        Concurso c = new Concurso(this.fechaCreacion, this.catedra, this.fechaEstimadaInscripcion, this.fechaEstimadaRealizacion, this.sesionActiva.getUser(), this.carrera, this.facultad, this.cargos);
+        // EstadoConcurso est=c.crearEst();
+        //c.tomarEstadoConcurso(est);
+        return c;
+    }
 
     public void setFacultad(Facultad facultad) {
         this.facultad = facultad;
@@ -171,24 +169,4 @@ public Concurso registrarNuevaConvocatoria(){ //ESTE ES EL METODO MAS IMPORTANTE
         this.cargos = cargos;
     }
 
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
